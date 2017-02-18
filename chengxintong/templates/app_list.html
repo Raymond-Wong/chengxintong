@@ -9,72 +9,114 @@
   <link type="text/css" rel="stylesheet" href="../static/css/base.css">
   <link type="text/css" rel="stylesheet" href="../static/css/header.css">
   <link type="text/css" rel="stylesheet" href="../static/css/app.css">
-  <link type="text/css" rel="stylesheet" href="../static/css/home.css">
+  <link type="text/css" rel="stylesheet" href="../static/css/app_list.css">
 </head>
 <body>
   <div class="header">
     <div class="header_inner">
-      <a target="_top" target="_top" class="header_left_btn" href="/user_center"><img src="../static/res/图标/个人中心.png" /></a>
-      <div class="header_text">首页</div>
-      <a target="_top" target="_top" class="header_right_btn" href="/info_center"><img src="../static/res/图标/消息中心.png" /></a>
+      <a target="_top" class="header_left_btn" href="/home"><img src="../static/res/图标/返回.png" /></a>
+      <div class="header_text">全部应用</div>
+      <!-- <a class="header_right_btn" href="/more"><img src="../static/res/图标/更多.png" /></a> -->
     </div>
   </div>
-  <img src="../static/res/图片/幻灯片.jpg" class="banner_image" />
-  <div class="line app_line">
-    <a target="_top" href="/family_account" class="app_container left" role="family_account">
-      <div class="app_wrapper">
-        <div class="app_box vertical_outer">
-          <div class="app vertical_inner">
-            <img src="../static/res/图标/家庭账户.png" class="app_icon" />
-            <div class="app_title line">家庭账户</div>
-            <div class="app_hint line">1000.34</div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a target="_top" href="/user_account" class="app_container left" role="user_account">
-      <div class="app_wrapper">
-        <div class="app_box vertical_outer">
-          <div class="app vertical_inner">
-            <img src="../static/res/图标/个人账户.png" class="app_icon" />
-            <div class="app_title line">个人中心</div>
-            <div class="app_hint line">658.88</div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a target="_top" href="today_income" class="app_container left" role="today_income">
-      <div class="app_wrapper">
-        <div class="app_box vertical_outer">
-          <div class="app vertical_inner">
-            <img src="../static/res/图标/今日收入.png" class="app_icon" />
-            <div class="app_title line">今日收入</div>
-            <div class="app_hint line">5.5</div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a target="_top" href="today_clock_in" class="app_container left" role="today_clock_in">
-      <div class="app_wrapper">
-        <div class="app_box vertical_outer">
-          <div class="app vertical_inner">
-            <img src="../static/res/图标/今日签到.png" class="app_icon" />
-            <div class="app_title line">今日签到</div>
-            <div class="app_hint line">3.25</div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <div class="clear"></div>
-  </div>
-  <div class="sub_app_block">
+  <div class="app_block">
+    <div class="app_block_title">健康生活</div>
     <div class="line app_line">
+      <a target="_top" href="/health_plan" class="app_container left" role="health_plan">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/健康计划.png" class="app_icon" />
+              <div class="app_title line">健康计划</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a target="_top" href="/checkbook" class="app_container left" role="checkbook">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/记账本.png" class="app_icon" />
+              <div class="app_title line">记账本</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a target="_top" href="/health_food" class="app_container left" role="health_food">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/绿色食品.png" class="app_icon" />
+              <div class="app_title line">绿色食品</div>
+            </div>
+          </div>
+        </div>
+      </a>
       <a target="_top" href="/doctor" class="app_container left" role="doctor">
         <div class="app_wrapper">
           <div class="app_box vertical_outer">
             <div class="app vertical_inner">
               <img src="../static/res/图标/好医生.png" class="app_icon" />
               <div class="app_title line">好医生</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="clear"></div>
+    </div>
+    <div class="line app_line">
+      <a target="_top" href="/lecture" class="app_container left" role="lecture">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/健康讲座.png" class="app_icon" />
+              <div class="app_title line">健康讲座</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a target="_top" href="/psychological_consult" class="app_container left" role="psychological_consult">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/心理咨询.png" class="app_icon" />
+              <div class="app_title line">心理咨询</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a target="_top" href="/care_food" class="app_container left" role="care_food">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/保健食品.png" class="app_icon" />
+              <div class="app_title line">保健食品</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a target="_top" href="/sports" class="app_container left" role="sports">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/体育健身.png" class="app_icon" />
+              <div class="app_title line">体育健身</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="app_block">
+    <div class="app_block_title">事业圈</div>
+    <div class="line app_line">
+      <a target="_top" href="/house_rent" class="app_container left" role="house_rent">
+        <div class="app_wrapper">
+          <div class="app_box vertical_outer">
+            <div class="app vertical_inner">
+              <img src="../static/res/图标/房屋租赁.png" class="app_icon" />
+              <div class="app_title line">房屋租赁</div>
             </div>
           </div>
         </div>
@@ -142,12 +184,12 @@
           </div>
         </div>
       </a>
-      <a target="_top" href="/app_list" class="app_container left" role="more_app">
+      <a target="_top" href="/shop" class="app_container left" role="shop">
         <div class="app_wrapper">
           <div class="app_box vertical_outer">
             <div class="app vertical_inner">
-              <img src="../static/res/图标/更多应用.png" class="app_icon" />
-              <div class="app_title line">全部</div>
+              <img src="../static/res/图标/购物商城.png" class="app_icon" />
+              <div class="app_title line">购物商城</div>
             </div>
           </div>
         </div>
@@ -156,8 +198,8 @@
     </div>
   </div>
   <div class="footer">
-    <a target="_top" href="#" class="footer_block left active">
-      <img class="footer_icon" src="../static/res/图标/首页2.png" />
+    <a target="_top" href="/home" class="footer_block left">
+      <img class="footer_icon" src="../static/res/图标/首页1.png" />
       <div class="footer_text">首页</div>
     </a>
     <a target="_top" href="/health" class="footer_block left">
