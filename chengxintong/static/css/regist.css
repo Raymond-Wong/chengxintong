@@ -45,6 +45,8 @@
   line-height: 35px;
   border-radius: 6px;
   background-color: #f9cd36;
+  width: 6em;
+  text-align: center;
 }
 
 .verify_btn.disable {
