@@ -1,7 +1,27 @@
 $(document).ready(function() {
   init_calendar();
   change_month();
+  close_success_msg();
+  go_clock_in();
 });
+
+var go_clock_in = function() {
+  post('/clock_in/', {'identify' : get_identify_safe()}, function(resp) {
+    if (resp['errno'] != 0 && 'error' in resp) {
+      alert(resp['error']);
+      return false;
+    }
+    $('.income_box').text('激活 ' + resp['money'] + ' 个诚信币');
+    $('.msg_box').text(resp['message']);
+    $('.success_clock_in_msg').show();
+  });
+}
+
+var close_success_msg = function() {
+  $('.close_btn').on('tap', function() {
+    $('.success_clock_in_msg').hide();
+  });
+}
 
 var change_month = function() {
   $('.change_btn').on('tap', function() {

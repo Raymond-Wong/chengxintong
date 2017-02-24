@@ -14,8 +14,8 @@ var listen_find = function() {
     }
     params['code'] = $('input[name="verify_code"]').val();
     post('/find_password/', params, function(resp) {
-      if ('msg' in resp) {
-        alert(resp['msg']);
+      if ('error' in resp) {
+        alert(resp['error']);
       }
       if (resp['errno'] == 0) {
         window.location.href = "/login/";

@@ -45,3 +45,11 @@ var reactive = function(btn) {
   btn.text('发送验证码');
   btn.removeClass('disable');
 }
+
+var get_identify_safe = function() {
+  if ($.cookie('identify') == undefined) {
+    window.location.href = "/login"
+  } else {
+    return $.cookie('identify');
+  }
+}

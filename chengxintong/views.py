@@ -25,8 +25,8 @@ def welcome(request):
 def login(request):
   if request.method == 'POST':
     params = []
-    params.append(dict(errno=0, identify=123, msg="登陆成功"))
-    params.append(dict(errno=1, identify=123, msg="用户名或密码错误"))
+    params.append(dict(errno=0, identify=123, error="登陆成功"))
+    params.append(dict(errno=1, identify=123, error="用户名或密码错误"))
     return HttpResponse(json.dumps(random.choice(params)), content_type="application/json")
   return render_to_response('login.html')
 
@@ -37,8 +37,8 @@ def login(request):
 def regist(request):
   if request.method == 'POST':
     params = []
-    params.append(dict(errno=0, msg="注册成功"))
-    params.append(dict(errno=1, msg="手机号已注册"))
+    params.append(dict(errno=0, error="注册成功"))
+    params.append(dict(errno=1, error="手机号已注册"))
     return HttpResponse(json.dumps(random.choice(params)), content_type="application/json")
   return render_to_response('regist.html')
 
@@ -49,8 +49,8 @@ def regist(request):
 def verify(request):
   if request.method == 'POST':
     params = []
-    params.append(dict(errno=0, msg="注册成功"))
-    params.append(dict(errno=1, msg="请求超时，请稍后再试"))
+    params.append(dict(errno=0, error="注册成功"))
+    params.append(dict(errno=1, error="请求超时，请稍后再试"))
     return HttpResponse(json.dumps(random.choice(params)), content_type="application/json")
 
 '''
@@ -60,8 +60,8 @@ def verify(request):
 def find_password(request):
   if request.method == 'POST':
     params = []
-    params.append(dict(errno=0, msg="重置成功"))
-    params.append(dict(errno=1, msg="请求超时，请稍后再试"))
+    params.append(dict(errno=0, error="重置成功"))
+    params.append(dict(errno=1, error="请求超时，请稍后再试"))
     return HttpResponse(json.dumps(random.choice(params)), content_type="application/json")
   return render_to_response('find_password.html')
 
@@ -70,6 +70,29 @@ def find_password(request):
 '''
 def home(request):
   return render_to_response('home.html')
+
+'''
+获取幻灯片列表
+'''
+@csrf_exempt
+def get_banner_list(request):
+  banner = []
+  banner.append(dict(name='slide1', image='http://www.runoob.com/wp-content/uploads/2014/07/slide1.png', url='http://www.baidu.com'))
+  banner.append(dict(name='slide2', image='http://www.runoob.com/wp-content/uploads/2014/07/slide2.png', url='http://www.sina.com'))
+  banner.append(dict(name='slide3', image='http://www.runoob.com/wp-content/uploads/2014/07/slide3.png'))
+  params = dict(banner=banner, errno=0)
+  return HttpResponse(json.dumps(params), content_type='application/json')
+
+'''
+获取未读消息数量
+'''
+@csrf_exempt
+def get_msg_count(request):
+  params = []
+  params.append(dict(errno=0, count=5))
+  params.append(dict(errno=0, count=0))
+  params.append(dict(errno=0, error="无效操作"))
+  return HttpResponse(json.dumps(random.choice(params)), content_type='application/json')
 
 '''
 健康页
@@ -122,7 +145,11 @@ def user_account(request):
 '''
 签到页
 '''
+@csrf_exempt
 def clock_in(request):
+  if request.method == 'POST':
+    params = dict(errno=0, money=100, message="签到成功")
+    return HttpResponse(json.dumps(params), content_type="application/json")
   return render_to_response('clock_in.html')
 
 '''

@@ -79,12 +79,56 @@ body {
   height: 100%;
   text-align: center;
   display: none;
+  z-index: 5;
+}
+
+.success_clock_in_box {
+  height: 100%;
+  width: auto;
+  position: relative;
+  margin: auto;
+  display: inline-block;
+}
+
+.close_btn {
+  width: 3.5vh;
+  height: 3.5vh;
+  position: absolute;
+  right: 7.4vh;
+  top: 25vh;
+}
+
+.check_detail_btn {
+  width: 28.3vh;
+  height: 5vh;
+  position: absolute;
+  right: 10.6vh;
+  bottom: 22.4vh;
+}
+
+.text_msg_box {
+  width: 35vh;
+  height: 12vh;
+  position: absolute;
+  top: 52vh;
+  left: 8vh;
+  background-color: white;
+}
+
+.text_msg_box .income_box {
+  font-size: 3vh;
+  padding: 0.2em 0;
+}
+
+.text_msg_box .msg_box {
+  font-size: 2vh;
+  line-height: 1.1em;
 }
 
 .success_clock_in_img {
   height: 100%;
   width: auto;
-  margin: auto;
+  /*margin: auto;*/
 }
 
 .banner_container {
