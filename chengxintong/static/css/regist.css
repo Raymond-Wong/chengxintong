@@ -88,3 +88,7 @@
   text-align: center;
   margin-top: 1em;
 }
+
+input {
+  background-color: transparent;
+}

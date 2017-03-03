@@ -40,4 +40,6 @@ urlpatterns = patterns('',
     url(r'^clock_in/$', views.clock_in, name="clock_in"),
     url(r'^get_banner_list/$', views.get_banner_list, name="get_banner_list"),
     url(r'^get_msg_count/$', views.get_msg_count, name="get_msg_count"),
+    url(r'^get_user_info_data/$', views.get_user_info_data, name="get_user_info_data"),
+    url(r'^get_sign_in_days/$', views.get_sign_in_days, name="get_sign_in_days"),
 )

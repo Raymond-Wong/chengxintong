@@ -5,12 +5,14 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 import json
 import random
+import string
 
 from django.http import HttpResponse, HttpRequest, HttpResponseServerError, Http404
 from django.shortcuts import render, redirect, render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.utils import timezone
+from datetime import date, timedelta
 
 '''
 启动页
@@ -91,7 +93,7 @@ def get_msg_count(request):
   params = []
   params.append(dict(errno=0, count=5))
   params.append(dict(errno=0, count=0))
-  params.append(dict(errno=0, error="无效操作"))
+  # params.append(dict(errno=0, error="无效操作"))
   return HttpResponse(json.dumps(random.choice(params)), content_type='application/json')
 
 '''
@@ -121,7 +123,22 @@ def app_list(request):
 '''
 家庭账号明细页
 '''
+@csrf_exempt
 def family_account_detail(request):
+  if request.method == 'POST':
+    params = dict(errno=0)
+    year = request.POST.get('year')
+    month = request.POST.get('month')
+    items = []
+    diff = 0.5
+    if int(request.POST.get('type')) == 1:
+      diff = 0
+    elif int(request.POST.get('type')) == 2:
+      diff = 1
+    for i in xrange(10):
+      items.append(dict(name="".join(random.sample(string.letters, random.randint(1, 10))), money=(random.random() - diff) * 1000, balance=random.random() * 10000, time="%s-%s-10" % (year, month)))
+    params['list'] = items
+    return HttpResponse(json.dumps(params), content_type='application/json')
   return render_to_response('family_account_detail.html')
 
 '''
@@ -133,7 +150,22 @@ def family_account_balance(request):
 '''
 个人账户明细页
 '''
+@csrf_exempt
 def user_account_detail(request):
+  if request.method == 'POST':
+    params = dict(errno=0)
+    year = request.POST.get('year')
+    month = request.POST.get('month')
+    items = []
+    diff = 0.5
+    if int(request.POST.get('type')) == 1:
+      diff = 0
+    elif int(request.POST.get('type')) == 2:
+      diff = 1
+    for i in xrange(10):
+      items.append(dict(name="".join(random.sample(string.letters, random.randint(1, 10))), money=(random.random() - diff) * 1000, balance=random.random() * 10000, time="%s-%s-10" % (year, month)))
+    params['list'] = items
+    return HttpResponse(json.dumps(params), content_type='application/json')
   return render_to_response('user_account_detail.html')
 
 '''
@@ -199,3 +231,30 @@ def feedback(request):
 '''
 def feedback(request):
   return render_to_response('clock_in.html')
+
+'''
+获取用户信息接口
+'''
+@csrf_exempt
+def get_user_info_data(request):
+  params = [dict(errno=0, error="系统升级中，请求失败")]
+  params = []
+  sign_goon = random.randint(0, 200)
+  params.append(dict(sign_state=random.choice([0, 1]), sign_nums=random.randint(0, 1000), sign_goon=sign_goon, sign_days=random.randint(sign_goon, sign_goon + 100), family_yestoday=random.random() * 1000, family_today=random.random() * 1000, family_planning=random.random() * 100000, family_money=random.randint(0, 10000), personal_money=random.randint(0, 10000), personal_today=random.randint(0, 1000), sign_money=random.random() * 10))
+  return HttpResponse(json.dumps(random.choice(params)), content_type="application/json")
+
+'''
+获取用户签到日期
+'''
+@csrf_exempt
+def get_sign_in_days(request):
+  year = int(request.POST.get('year'))
+  month = int(request.POST.get('month'))
+  fdm = date(year, month, 1)
+  cd = date(fdm.year, fdm.month, fdm.day)
+  dates = []
+  while cd.month == fdm.month:
+    dates.append(cd.day)
+    cd += timedelta(days=1)
+  params = dict(errno=0, list=random.sample(dates, random.randint(5, len(dates))))
+  return HttpResponse(json.dumps(params), content_type='application/json')

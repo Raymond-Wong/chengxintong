@@ -1,6 +1,7 @@
 $(document).ready(function() {
   init_banner();
   init_msg();
+  init_digit();
 });
 
 var init_banner = function() {
@@ -42,3 +43,18 @@ var init_msg = function() {
     }
   });
 }
+
+var init_digit = function() {
+  post('/get_user_info_data/', {'identify' : get_identify_safe()}, function(resp) {
+    if (resp['errno'] != 0 && 'error' in resp) {
+      alert(resp['error']);
+      return false;
+    }
+    // 获取家庭账户
+    $('.app_container[role="family_account"] .app_hint').text(resp['family_money']);
+    $('.app_container[role="user_account"] .app_hint').text(resp['personal_money']);
+    $('.app_container[role="today_income"] .app_hint').text(resp['personal_today']);
+    $('.app_container[role="today_clock_in"] .app_hint').text(resp['sign_money'].toFixed(2));
+  })
+}
+

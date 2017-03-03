@@ -1,9 +1,11 @@
 SCROLLERS = {};
 $(document).ready(function() {
-  init_scrollers();
+  // init_scrollers();
 })
 
-var init_scrollers = function() {
+CALLBACK = null;
+var init_scrollers = function(callback) {
+  CALLBACK = callback;
   $('.list_box').each(function() {
     SCROLLERS[this] = init_scroller($(this));
   });
@@ -30,13 +32,35 @@ var init_scroller = function(list_box, start_pos) {
 
 var update = function(list_box, start_pos) {
   var scroller = init_scroller(list_box, start_pos);
+  SCROLLERS[list_box] = scroller;
   var list = list_box.children('.list');
   var hint = list_box.children('.hint');
   if (hint.text() == '正在加载数据...') return false;
   hint.text('正在加载数据...');
-  setTimeout(function() {
-    list.css('height', list.height() + 14 * 5 + 'px');
-    scroller.refresh();
-    hint.text('上拉加载更多数据');
-  }, 3000);
+  if (CALLBACK != null) {
+    CALLBACK(function() {
+      scroller.refresh();
+      hint.text('上拉加载更多数据');
+    });
+  } else {
+    setTimeout(function() {
+      list.css('height', list.height() + 14 * 5 + 'px');
+      scroller.refresh();
+      hint.text('上拉加载更多数据');
+    }, 3000);
+  }
+}
+
+var refresh_scrollers = function() {
+  for (var idx in SCROLLERS) {
+    SCROLLERS[idx].refresh();
+  }
+}
+
+var destroy_scrollers = function() {
+  for (var idx in SCROLLERS) {
+    SCROLLERS[idx].destroy();
+    SCROLLERS[idx] = null;
+  }
+  SCROLLERS = {};
 }

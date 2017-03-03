@@ -33,18 +33,19 @@
   <div class="block history_block">
     <div class="history_box yesterday_box left">
       <div class="history_box_title">昨日收益</div>
-      <div class="history_box_num textEllipsis">1.85</div>
+      <div class="history_box_num textEllipsis" role="family_yestoday">1.85</div>
     </div>
     <div class="history_box yesterday_box left">
       <div class="history_box_title">今日收益</div>
-      <div class="history_box_num textEllipsis">59.22
-        <img class="tendency_icon tendency_up active" src="../static/res/图标/上升.png" />
+      <div class="history_box_num textEllipsis" role="family_today">
+        <font role="family_today">59.22</font>
+        <img class="tendency_icon tendency_up" src="../static/res/图标/上升.png" />
         <img class="tendency_icon tendency_down" src="../static/res/图标/下降.png" />
       </div>
     </div>
     <div class="history_box yesterday_box total_box left">
       <div class="history_box_title">家庭账户</div>
-      <div class="history_box_num textEllipsis">6068.59</div>
+      <div class="history_box_num textEllipsis" role="family_money">6068.59</div>
     </div>
     <div class="clear"></div>
   </div>
@@ -53,14 +54,14 @@
       <img src="../static/res/图标/今日收入.png" class="box_icon" />
       <div class="box_content">
         <div class="box_content_title">今日收入</div>
-        <div class="box_content_num textEllipsis">668.25</div>
+        <div class="box_content_num textEllipsis" role="personal_today">668.25</div>
       </div>
     </div>
     <div class="today_box balance_box left">
       <img src="../static/res/图标/个人账户.png" class="box_icon" />
       <div class="box_content">
         <div class="box_content_title">个人账户</div>
-        <div class="box_content_num textEllipsis">5068.25</div>
+        <div class="box_content_num textEllipsis" role="personal_money">5068.25</div>
       </div>
     </div>
     <div class="line income_instruction_line left">
@@ -89,12 +90,12 @@
       <img class="footer_icon" src="../static/res/图标/健康1.png" />
       <div class="footer_text">健康</div>
     </a>
-    <a target="_top" href="#" class="footer_block left active">
-      <img class="footer_icon" src="../static/res/图标/事业2.png" />
+    <a target="_top" href="/career" class="footer_block left">
+      <img class="footer_icon" src="../static/res/图标/事业1.png" />
       <div class="footer_text">事业</div>
     </a>
-    <a target="_top" href="/treasure" class="footer_block left">
-      <img class="footer_icon" src="../static/res/图标/财富1.png" />
+    <a target="_top" href="#" class="footer_block left active">
+      <img class="footer_icon" src="../static/res/图标/财富2.png" />
       <div class="footer_text">财富</div>
     </a>
     <div class="clear"></div>
@@ -104,5 +105,8 @@
 <script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.mobile-local.js"></script>
 <script type="text/javascript" src="../static/js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/utils.js"></script>
+<script type="text/javascript" src="../static/js/treasure.js"></script>
 </html>

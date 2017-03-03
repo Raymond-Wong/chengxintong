@@ -14,59 +14,19 @@
 <body>
   <div class="header">
     <div class="header_inner">
-      <a target="_top" target="_top" class="header_left_btn" href="/home"><img src="../static/res/图标/返回.png" /></a>
+      <a target="_top" class="header_left_btn" href="/home"><img src="../static/res/图标/返回.png" /></a>
       <div class="header_text">个人账户明细</div>
-      <a target="_top" target="_top" class="header_right_btn" href="/search"><img src="../static/res/图标/搜索.png" /></a>
+      <a target="_top" class="header_right_btn"><img src="../static/res/图标/搜索.png" /></a>
     </div>
   </div>
   <div class="nav">
-    <div class="nav_option left active">全部</div>
-    <div class="nav_option left">收入</div>
-    <div class="nav_option left">支出</div>
+    <div class="nav_option left active" value="0">全部</div>
+    <div class="nav_option left" value="1">收入</div>
+    <div class="nav_option left" value="2">支出</div>
     <div class="clear"></div>
   </div>
-  <div class="list_box">
+  <div class="list_box" role="personal">
     <div class="list">
-      <div class="item">
-        <div class="item_line item_name_line">
-          <div class="left_item textEllipsis">系统分配</div>
-          <div class="right_item textEllipsis">2017-02-11</div>
-        </div>
-        <div class="item_line item_balance_line">
-          <div class="left_item textEllipsis">余额：856.25</div>
-          <div class="right_item textEllipsis">+200</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item_line item_name_line">
-          <div class="left_item textEllipsis">系统分配</div>
-          <div class="right_item textEllipsis">2017-02-11</div>
-        </div>
-        <div class="item_line item_balance_line">
-          <div class="left_item textEllipsis">余额：856.25</div>
-          <div class="right_item textEllipsis">+200</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item_line item_name_line">
-          <div class="left_item textEllipsis">系统分配</div>
-          <div class="right_item textEllipsis">2017-02-11</div>
-        </div>
-        <div class="item_line item_balance_line">
-          <div class="left_item textEllipsis">余额：856.25</div>
-          <div class="right_item textEllipsis">+200</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item_line item_name_line">
-          <div class="left_item textEllipsis">系统分配</div>
-          <div class="right_item textEllipsis">2017-02-11</div>
-        </div>
-        <div class="item_line item_balance_line">
-          <div class="left_item textEllipsis">余额：856.25</div>
-          <div class="right_item textEllipsis">+200</div>
-        </div>
-      </div>
     </div>
     <div class="hint">上拉加载更多</div>
   </div>
@@ -74,7 +34,10 @@
 <script type="text/javascript" src="../static/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery.mobile-local.js"></script>
 <script type="text/javascript" src="../static/js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../static/js/iscroll-probe.js"></script>
+<script type="text/javascript" src="../static/js/utils.js"></script>
 <script type="text/javascript" src="../static/js/scroll_list.js"></script>
+<script type="text/javascript" src="../static/js/account_detail.js"></script>
 </html>

@@ -1,3 +1,7 @@
+html {
+  height: auto;
+}
+
 body {
   position: relative;
 }
@@ -44,6 +48,7 @@ body {
   outline: none;
   padding-left: 0;
   font-size: 0.8em;
+  background-color: transparent;
 }
 
 .option_line {

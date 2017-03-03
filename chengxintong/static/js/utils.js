@@ -22,7 +22,7 @@ var get_verify_code = function(btn) {
     params['type'] = 0;
     post('/verify/', params, function(resp) {
       if (resp['errno'] != 0 && 'error' in resp) {
-        alert(resp['msg']);
+        alert(resp['error']);
         reactive($(this));
       }
     });
